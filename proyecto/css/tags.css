@@ -1,0 +1,5 @@
+.item{color:#48453d;  overflow:hidden;}
+.block-title{color: #48453d; margin-bottom:0px; font-size:18px; margin-top: 0px; font-weight:700; text-transform:uppercase;}
+.item-content-block{padding:10px; border-top:2px solid #f6f6f2; background-color:#FFF; display:block;}
+.tags p{background-color:#277812; padding:10px; color:#fff; display:inline-block; font-size:11px; text-transform:uppercase; line-height:11px; border-radius:2px; margin-bottom:5px; margin-right:2px; text-decoration:none;}
+.tags p:hover{background-color:#007296;}
