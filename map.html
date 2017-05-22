@@ -1,0 +1,402 @@
+
+<!doctype html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Google maps: obtener latitud &#038; longitud</title>
+    
+    <link href="http://www.bufa.es/wp-content/themes/bufa/style.css" type="text/css" media="screen" rel="stylesheet" />
+    <link rel="pingback" href="http://www.bufa.es/xmlrpc.php" />
+    <link rel="shortcut icon" type="image/x-icon" href="http://www.bufa.es/favicon.ico" />
+    <link rel="author" href="https://plus.google.com/104832158592558852091" />
+
+    <link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Bufa &raquo; Feed" href="http://www.bufa.es/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Bufa &raquo; RSS de los comentarios" href="http://www.bufa.es/comments/feed/" />
+
+    	<meta name="description" content="Herramienta online para obtener fácilmente las coordenadas geográficas de latitud y longitud de un lugar en el mapa de " />
+    	<meta property="og:image" content="http://www.bufa.es/wp-content/uploads/2012/05/coordenadas-google-maps.jpg" />
+	    <meta name="twitter:card" content="photo" />
+	    <meta name="twitter:site" content="@jorge_maiden" />
+	    <meta name="twitter:creator" content="@jorge_maiden" />
+	    <meta name="twitter:url" content="http://www.bufa.es/google-maps-latitud-longitud/" />
+	    <meta name="twitter:title" content="Google maps: obtener latitud &#038; longitud" />
+	    <meta name="twitter:description" content="Herramienta online para obtener fácilmente las coordenadas geográficas de latitud y longitud de un lugar en el mapa de " />
+	    <meta name="twitter:image" content="http://www.bufa.es/wp-content/uploads/2012/05/coordenadas-google-maps.jpg" />
+
+    <link rel="alternate" type="application/rss+xml" title="Bufa &raquo; Google maps: obtener latitud &#038; longitud RSS de los comentarios" href="http://www.bufa.es/google-maps-latitud-longitud/feed/" />
+<link rel='stylesheet' id='my-script-slug-css'  href='http://www.bufa.es/wp-content/themes/bufa/css/google-maps-latitud-longitud.css?ver=4.7.4' type='text/css' media='all' />
+<link rel='https://api.w.org/' href='http://www.bufa.es/wp-json/' />
+<link rel="alternate" type="application/json+oembed" href="http://www.bufa.es/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.bufa.es%2Fgoogle-maps-latitud-longitud%2F" />
+<link rel="alternate" type="text/xml+oembed" href="http://www.bufa.es/wp-json/oembed/1.0/embed?url=http%3A%2F%2Fwww.bufa.es%2Fgoogle-maps-latitud-longitud%2F&#038;format=xml" />
+    
+</head>
+
+<body class="page-template page-template-tpl_googlemaps page-template-tpl_googlemaps-php page page-id-1877">
+
+<header id="header">
+    <div class="inner">
+        <div class="logo">
+            <a href="http://www.bufa.es/">bufa</a>
+            <span class="slogan">Compartiendo código</span>
+        </div>
+        <ul class="list-social">
+            <li>
+                <a href="https://twitter.com/jorge_maiden" class="item" target="_blank" onClick="ga('send', 'event', 'Redes Sociales', 'click', 'Twitter');">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 14" class="ico-svg">
+                        <use xlink:href="http://www.bufa.es/wp-content/themes/bufa/images/sprite-icons.svg#twitter"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="https://plus.google.com/+JorgeMaiden" class="item" target="_blank" onClick="ga('send', 'event', 'Redes Sociales', 'click', 'Google+');">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 14" class="ico-svg">
+                        <use xlink:href="http://www.bufa.es/wp-content/themes/bufa/images/sprite-icons.svg#googleplus"/>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="http://feeds.feedburner.com/bufa" class="item" target="_blank" onClick="ga('send', 'event', 'Redes Sociales', 'click', 'RSS');">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" class="ico-svg">
+                        <use xlink:href="http://www.bufa.es/wp-content/themes/bufa/images/sprite-icons.svg#rss"/>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" class="ico-svg ico-search js-search">
+            <use xlink:href="http://www.bufa.es/wp-content/themes/bufa/images/sprite-icons.svg#search"/>
+        </svg>     
+    </div>
+    <nav class="nav-main" id="holder">
+        <ul id="scroll">
+        	<li class="cat-item cat-item-12"><a href="http://www.bufa.es/web/wordpress/" >Wordpress</a>
+</li>
+	<li class="cat-item cat-item-5"><a href="http://www.bufa.es/web/php/" >PHP</a>
+</li>
+	<li class="cat-item cat-item-4"><a href="http://www.bufa.es/web/jquery/" >JQuery</a>
+</li>
+	<li class="cat-item cat-item-22"><a href="http://www.bufa.es/web/css/" >CSS</a>
+</li>
+	<li class="cat-item cat-item-3"><a href="http://www.bufa.es/web/javascript/" >Javascript</a>
+</li>
+	<li class="cat-item cat-item-313"><a href="http://www.bufa.es/web/prestashop/" >Prestashop</a>
+</li>
+	<li class="cat-item cat-item-95"><a href="http://www.bufa.es/web/htaccess/" >.htaccess</a>
+</li>
+	<li class="cat-item cat-item-20"><a href="http://www.bufa.es/web/seo/" >SEO</a>
+</li>
+	<li class="cat-item cat-item-225"><a href="http://www.bufa.es/web/magento/" >Magento</a>
+</li>
+	<li class="cat-item cat-item-145"><a href="http://www.bufa.es/web/redes-sociales/facebook/" >Facebook</a>
+</li>
+	<li class="cat-item cat-item-24"><a href="http://www.bufa.es/web/redes-sociales/" >Redes Sociales</a>
+</li>
+	<li class="cat-item cat-item-130"><a href="http://www.bufa.es/web/mysql/" >MySQL</a>
+</li>
+	<li class="cat-item cat-item-188"><a href="http://www.bufa.es/web/html5/" >HTML5</a>
+</li>
+	<li class="cat-item cat-item-398"><a href="http://www.bufa.es/web/git/" >Git</a>
+</li>
+	<li class="cat-item cat-item-300"><a href="http://www.bufa.es/web/google-maps/" >Google maps</a>
+</li>
+	<li class="cat-item cat-item-393"><a href="http://www.bufa.es/web/codeigniter/" >Codeigniter</a>
+</li>
+	<li class="cat-item cat-item-326"><a href="http://www.bufa.es/web/html/" >HTML</a>
+</li>
+	<li class="cat-item cat-item-387"><a href="http://www.bufa.es/web/libros/" >Libros</a>
+</li>
+	<li class="cat-item cat-item-391"><a href="http://www.bufa.es/web/symfony/" >Symfony</a>
+</li>
+	<li class="cat-item cat-item-1"><a href="http://www.bufa.es/web/general/" >General</a>
+</li>
+        </ul>
+    </nav>
+</header>
+    
+<div class="box-search">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" class="ico-svg ico-close js-search">
+        <use xlink:href="http://www.bufa.es/wp-content/themes/bufa/images/sprite-icons.svg#close"/>
+    </svg>
+    <div class="inner">
+		<form method="get" action="http://www.bufa.es/">
+			<input type="text" value="" name="s" class="input-search" placeholder="Buscar..." />
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" class="ico-svg">
+	                <use xlink:href="http://www.bufa.es/wp-content/themes/bufa/images/sprite-icons.svg#search"/>
+	            </svg>
+			</button>
+		</form>
+    </div>
+</div>
+<div class="inner">
+
+    <div id="content" class="full">
+    
+            
+        <article itemscope itemtype="http://schema.org/Article" class="box">
+        
+            <header class="header">
+                <h1><a href="http://www.bufa.es/google-maps-latitud-longitud/">Google maps: obtener latitud &#038; longitud</a></h1>
+                <div class="share">
+                    <ul>
+                        <li class="google">
+                            <div class="g-plusone" data-size="medium" data-href="http://www.bufa.es/google-maps-latitud-longitud/"></div>
+                        </li>
+                        <li class="twitter">
+                            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.bufa.es/google-maps-latitud-longitud/" data-via="jorge_maiden" data-lang="es" data-hashtags="">Twittear</a>
+                        </li>
+                        <li class="facebook">
+                            <div class="fb-like" data-href="http://www.bufa.es/google-maps-latitud-longitud/" data-send="false" data-layout="button_count" data-width="110" data-show-faces="false"></div>
+                        </li>
+                    </ul>
+                </div>
+            </header>
+                            
+            <section class="content">
+              <p>Herramienta online para obtener fácilmente las <strong>coordenadas</strong> geográficas de &#8220;<strong>latitud</strong>&#8221; y &#8220;<strong>longitud</strong>&#8221; de un lugar en el mapa de google maps.</p>
+<p>Puedes desplazarte por el mapa y insertar <strong>multiples marcadores</strong> (pincha luego sobre ellos) y obtener los valores de latitud y longitud o directamente buscar por localidad (calle / dirección / ciudad / provincia) y pinchar el boton &#8220;<strong>buscar</strong>&#8220;.</p>
+                                                <div class="ads">
+                    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    <!-- bufa_336x280 -->
+                    <ins class="adsbygoogle"
+                       style="display:inline-block;width:336px;height:280px"
+                       data-ad-client="ca-pub-2638586827597767"
+                       data-ad-slot="4482706907"></ins>
+                    <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                  </div>
+                                                                        <div style="clear:both"></div>
+            </section>
+        
+        </article>
+    
+        
+    </div>
+
+</div>
+
+<div class="wrap-map">
+  <div id="map">
+      <div id="map_canvas"></div>
+      <div id="crosshair"></div>
+      <div class="form">
+          <ul>
+            <li><input type="text" id="address" placeholder="Escribe aquí tu lugar..." value="" class="input" /></li>
+            <li><input type="button" value="Buscar" onclick="geocode()" class="button" /></li>
+            <li><input type="button" value="Insertar marcador" onclick="addMarkerAtCenter()" class="button" /></li>
+          </ul>
+        <div class="google">
+          <div class="g-plusone" data-href="http://www.bufa.es/google-maps-latitud-longitud/"></div>
+        </div>
+      </div>
+      <div class="coordinates">
+        <em class="lat">Latitud</em>
+        <em class="lon">Longitud</em>
+        <input type="text" id="lat" onclick="select()" />
+        <input type="text" id="lng" onclick="select()" />
+      </div>
+      <div class="address">
+        <span id="formatedAddress">...</span>
+      </div>
+  </div>
+</div>
+
+<ul class="list-tags">
+<li><a href="http://www.bufa.es/google-maps-latitud-longitud/madrid/" class="button">Madrid</a></li><li><a href="http://www.bufa.es/google-maps-latitud-longitud/barcelona/" class="button">Barcelona</a></li></ul>
+
+<script>
+window.onload = function() {
+  loadShares();
+};
+</script>
+
+<footer id="footer">
+    
+    <div class="main inner">
+        <div class="about">
+            <h3>Jorge Maiden</h3>
+            <p>Me conocen por <a rel="author" href="https://plus.google.com/104832158592558852091?rel=author" target="_blank">Jorge Maiden</a>, y soy de <a href="http://es.wikipedia.org/wiki/Le%C3%B3n_(Espa%C3%B1a)">León</a> (España).<br />
+            Desde el año 2004 trabajo de <a href="http://www.bufa.es/">desarrollador web</a> en las disciplinas de diseño, programación y SEO.</p>
+            <p><em>bufa.es</em> es una página web que tiene como finalidad "compartir" <strong>snippets</strong> y otros <strong>recursos web</strong> que voy utilizando en el día día.</p>
+        </div>
+    </div>
+    
+    <div class="bottom">
+        <div class="inner">
+            <p class="left">&copy; bufa.es 2009-2017 | <a href="http://feeds.feedburner.com/bufa">RSS</a> | <a href="http://twitter.com/jorge_maiden" target="_blank">Twitter</a> | <a href="http://www.linkedin.com/in/jorgemaiden" target="_blank">Linkedin</a> | <a href="https://plus.google.com/+BufaEs" rel="publisher">google +</a> | <a href="http://validator.w3.org/check?uri=http%3A%2F%2Fwww.bufa.es" target="_blank">html5</a> válido | Web alojada en <a href="http://www.bufa.es/hosting/hostmonster">Hostmonster</a></p>
+            <p class="right"><a href="http://www.bufa.es/sobremi/">sobre mi</a> | <a href="http://www.bufa.es/contacto/">contacto</a> | <a href="http://www.bufa.es/cookies/">cookies</a></p>
+        </div>
+    </div>
+
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> 
+<script src="http://www.bufa.es/wp-content/themes/bufa/js/scripts.min.js"></script>
+
+<!--[if lt IE 8]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+
+
+</body>
+
+</html>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+var map;
+var geocoder;
+var centerChangedLast;
+var reverseGeocodedLast;
+var currentReverseGeocodeResponse;
+
+function initialize(map_lat, map_lon, map_zoom) {
+
+  map_lat   = typeof map_lat !== 'undefined' ? map_lat : '42.621535114613685';
+  map_lon   = typeof map_lon !== 'undefined' ? map_lon : '-5.595249100000046';
+  map_zoom  = typeof map_zoom !== 'undefined' ? map_zoom : 3;
+
+  var latlng = new google.maps.LatLng(map_lat, map_lon);
+
+  var myOptions = {
+    zoom: map_zoom,
+    center: latlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+  geocoder = new google.maps.Geocoder();
+  setupEvents();
+  centerChanged();
+  var opt = { minZoom: 3 };
+  map.setOptions(opt);
+
+}
+
+function setupEvents() {
+
+  reverseGeocodedLast = new Date();
+  centerChangedLast = new Date();
+
+  setInterval(function() {
+    if((new Date()).getSeconds() - centerChangedLast.getSeconds() > 1) {
+      if(reverseGeocodedLast.getTime() < centerChangedLast.getTime())
+        reverseGeocode();
+    }
+  }, 1000);
+
+  google.maps.event.addListener(map, 'center_changed', centerChanged);
+  google.maps.event.addDomListener(document.getElementById('crosshair'),'dblclick', function() {
+     map.setZoom(map.getZoom() + 1);
+  });
+
+}
+
+function getCenterLatLngText() {
+
+  return '(' + map.getCenter().lat() +', '+ map.getCenter().lng() +')';
+
+}
+
+function centerChanged() {
+
+  centerChangedLast = new Date();
+  var latlng = getCenterLatLngText();
+  var lat = map.getCenter().lat();
+  var lng = map.getCenter().lng();
+  document.getElementById('lat').value = lat;
+  document.getElementById('lng').value = lng;
+  reverseGeocode();
+
+}
+
+function reverseGeocode() {
+
+  reverseGeocodedLast = new Date();
+  geocoder.geocode({latLng:map.getCenter()},reverseGeocodeResult);
+
+}
+
+function reverseGeocodeResult(results, status) {
+
+  currentReverseGeocodeResponse = results;
+
+  if(status == 'OK') {
+    if(results.length == 0) {
+      document.getElementById('formatedAddress').innerHTML = '???';
+    } else {
+      document.getElementById('formatedAddress').innerHTML = results[0].formatted_address;
+    }
+  } else {
+    document.getElementById('formatedAddress').innerHTML = '???';
+  }
+
+}
+
+function geocode() {
+
+  var address = document.getElementById("address").value;
+
+  geocoder.geocode({
+    'address': address,
+    'partialmatch': true
+  }, geocodeResult);
+
+}
+
+function geocodeResult(results, status) {
+
+  if (status == 'OK' && results.length > 0) {
+    map.fitBounds(results[0].geometry.viewport);
+  } else {
+    alert("Geocode was not successful for the following reason: " + status);
+  }
+
+}
+
+function addMarkerAtCenter() {
+
+  var marker = new google.maps.Marker({
+      position: map.getCenter(),
+      map: map
+  });
+
+  var text = 'Lat/Lng: ' + getCenterLatLngText();
+
+  if(currentReverseGeocodeResponse) {
+    var addr = '';
+    if(currentReverseGeocodeResponse.size == 0) {
+      addr = 'None';
+    } else {
+      addr = currentReverseGeocodeResponse[0].formatted_address;
+    }
+    text = text + '<br>' + 'Dirección: <br>' + addr;
+  }
+
+  var infowindow = new google.maps.InfoWindow({ content: text });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+
+}
+
+$(document).ready(function(){
+
+      initialize();
+  
+});
+
+$(document).keypress(function(event){
+
+  var keycode = (event.keyCode ? event.keyCode : event.which);
+  if(keycode == '13'){
+    geocode();    
+  }
+
+});
+</script>

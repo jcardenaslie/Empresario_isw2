@@ -1,0 +1,3 @@
+<?php
+$mysqli = new mysqli('is2.cvfcsofjwxqn.sa-east-1.rds.amazonaws.com', 'elvisrios', '090540133a', 'proyectois20
+?>

@@ -1,0 +1,128 @@
+
+.panel-heading .accordion-toggle:after {
+    /* symbol for "opening" panels */
+    font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+    content: "\e114";    /* adjust as needed, taken from bootstrap.css */
+    float: right;        /* adjust as needed */
+    color: grey;         /* adjust as needed */
+}
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: "\e080";    /* adjust as needed, taken from bootstrap.css */
+}
+
+.container{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.panel-title{
+    font-size: 14px;
+    color: #555;
+}
+
+
+.panel.panel-default {
+    border-top-width: 0px;
+    border-left-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+
+}
+
+.panel-group{
+    margin-bottom: 0px;
+}
+
+
+.list-group{
+    margin-bottom: 0px;
+}
+
+.panel-collapse{
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
+
+.panel-heading{
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.list-group-item.category{
+    border-top-width: 0px;
+    border-bottom-width: 0.1px;
+
+}
+
+.list-group-item.reports{
+border-top-width: 0px;
+}
+
+#bodyContent{
+    margin-top: 20px;
+}
+
+.col-md-3 {
+    width: 210px;
+}
+
+html, body { 
+	height:100%; 
+}
+
+ .navbar-inverse {
+    background-color: #007296;
+    border-color: #1fb5ad;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #eee;
+    padding-top: 5px;
+}
+
+div.navbar-header > div.title {
+    padding-top:22px;
+    padding-left: 16px;
+}
+
+.navbar{
+    min-height: 58px;
+}
+
+
+body {
+    padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+
+div.pages{
+    display: none;
+}
+
+.pages img {
+    width: 100%;
+}
+
+.pages {
+    padding: 0;
+}
+
+.pages .caption-full {
+    padding: 9px;
+    color: #333;
+}
+
+footer {
+    margin: 50px 0;
+}
+.botoncito {
+    color: transparent;
+
+}
+.botoncito:before {
+  content: "Email address: ";
+}
